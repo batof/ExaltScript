@@ -33,15 +33,15 @@ You can get the pointer path to localplayer adress via simple cheat-engine point
 0x428 stars
 
 Here's my code using memoryjs ( because im really used to nodejs )
-Initialization , find the game and find module.
+> Initialization , find the game and find module.
 ```
 const memoryjs = require('memoryjs');
 const processName = "RotMG Exalt.exe";
 const process = memoryjs.openProcess(processName);
 const clientModule = memoryjs.findModule("GameAssembly.dll", process.th32ProcessID);
 ```
-Get localplayer address
-Example , first pointer from that list
+> Get localplayer address
+
 Code:
 ```
 p1 =  memoryjs.readMemory(memory.process.handle, memory.module.modBaseAddr+0x0323CFC0, pointer)  //"GameAssembly.dll"+0323CFC0
@@ -58,7 +58,7 @@ void* p2 = *(void**)(DWORD64(p1) + 0xB8);
 void* p3 = *(void**)(DWORD64(p2) + 0x0);
 ```
 
-To get player hp for example :
+> To get player hp for example :
 
 
 Code:
@@ -74,8 +74,8 @@ First of all , i should mention that this method is pretty rough and you will be
 
 Here's how i get entities externally , without injecting anything into the game -
 After some cheat engine scans i noticed that each player/enemy entity adress points to another adress ( which i think is their class or something ) , which in the current update is located at: (will definitely change)
-Each player address points to GameAssembly.dll+0x31F1978
-Each enemy address points to GameAssembly.dll+0x31F1A80
+> Each player address points to GameAssembly.dll+0x31F1978
+> Each enemy address points to GameAssembly.dll+0x31F1A80
 
 After seeing how game handles entities , i noticed that there is a pre-defined amount of addresses dedicated to players and entities , and f.e , when one entity is not visible , the adress will be used by another entity and so on.
 
@@ -83,7 +83,7 @@ And , as crazy as it seems , a simple scan of addresses that point to GameAssemb
 
 There are tons of libraries that can help you scan memory for addresses based on their values.
 
-Respectively , here is the code that i do at the start of the game (nodejs):
+> Respectively , here is the code that i do at the start of the game (nodejs):
 
 ```
 var memscan = require("memscan");
@@ -92,17 +92,17 @@ var players = process.scanForInt32(playerClassAdress);
 var enemies = process.scanForInt32(enemyClassAdress);
 ```
 The only issue is that , not all the found adresses are safe to read or write to and there should be a bit of filtering:
-For players , all the adresses should be divisible by 0x1000 or 0x540 or 0xa80 ( or end with 000, 540, a80 ).
-For enemies , all the adresses should be divisible by 0x1000 or 0x320 or 0x640 or 0x960 or 0xC80
+> For players , all the adresses should be divisible by 0x1000 or 0x540 or 0xa80 ( or end with 000, 540, a80 ).
+> For enemies , all the adresses should be divisible by 0x1000 or 0x320 or 0x640 or 0x960 or 0xC80
 
 This should be easy to do , just check modulus and push to new array the filtered enemies or players.
 
 
 The next thing is to handle the entities , thanks a lot to @Azuki and especially to @DIA4A for helping and posting quality stuff.
 
-Entity is on-screen and alive - entityAdress + 0x58 (bool)
-Entity x position - entityAdress + 0x3C (float)
-Entity y position - entityAdress + 0x40 (float)
-Entity health - entityAdress + 0x1C0 (int)
+> Entity is on-screen and alive - entityAdress + 0x58 (bool)
+> Entity x position - entityAdress + 0x3C (float)
+> Entity y position - entityAdress + 0x40 (float)
+> Entity health - entityAdress + 0x1C0 (int)
 
 I'm not really experienced in game-hacking and im doing it for fun , hope this helps someone.
