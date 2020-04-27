@@ -1,0 +1,20 @@
+{
+  "name": "exaltdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mainGui.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-reload": "^1.5.0",
+    "memoryjs": "^3.2.3",
+    "request-promise": "^4.2.5"
+  },
+  "devDependencies": {
+    "electron": "^8.2.3",
+    "electron-rebuild": "^1.10.1"
+  }
+}

@@ -1,0 +1,40 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+        <h2>hello</h2>
+        <div id="editor">
+function setup() { //this will execute on start
+    localPlayer.updateLocal()
+    localPlayer.updateAll()
+    localPlayer.cameraY.write(localPlayer.cameraY.value+2)
+    console.log('Teleported')
+}
+
+draw = ()=>{
+    
+}</div>
+    <button type="button" onclick="sendCode()">go</button>
+
+        <script src="ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="script.js"></script>
+        <style>
+
+            #editor {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+            button {
+                position: absolute;
+                z-index: 4;
+                top:0;
+                widtH:30px;
+            }
+        </style>
+    </body>
+</html>
