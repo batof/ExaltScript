@@ -1,5 +1,11 @@
 # ExaltScript
-Project dedicated to hacking and scripting RotMG Exalt
+Project dedicated to reversing, hacking and scripting RotMG Exalt
+
+![Image](https://i.imgur.com/cyDytuC.png)
+
+> on execution
+
+![Image](https://i.ibb.co/PjJKNx1/ezgif-7-cf1afe307f7d.gif)
 
 Source code of the entity scrapper will not be posted , but it's explained how it works below **
 
