@@ -1,12 +1,12 @@
 # ExaltScript
 Project dedicated to hacking and scripting RotMG Exalt
 
-Source code of the entity scrapper will not be posted , but it's explained how it works below
+Source code of the entity scrapper will not be posted , but it's explained how it works below **
 
-**in order for the interface to work you need to add ace editor build inside the folder
-**this runs on electron + memoryjs(node13 branch) + some other modules you can find in package.json
+** in order for the interface to work you need to add ace editor build inside the folder **
+** this runs on electron + memoryjs(node13 branch) + some other modules you can find in package.json **
 
-**to start the project you need atleast intermediate node js experience.
+** to start the project you need atleast intermediate node js experience. **
 
 Tutorials posted by me on mpgh
 In order to get player data from the exalt client, you should inject and read memory from the module GameAssemly.dll.
